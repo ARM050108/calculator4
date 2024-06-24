@@ -18,7 +18,7 @@ public class Calcul {
         String result;
         boolean getObject = true;
         String[] terms = input.split("[+\\-*/]");
-        if (terms.length != 2) throw new Exception("т.к. должно быть только ровно два слагаемых");
+        if (terms.length != 2) throw new Exception();
 
         sign = detectOperation(input);
 
@@ -32,23 +32,20 @@ public class Calcul {
             num2 = Integer.parseInt(terms[1]);
             getObject = false;}
         else {
-            System.out.println("throw Exception // т.к используются одновременно разные системы счисления");
+            throw new Exception();
         }
         if (num1 > 10 || num2 > 10) {
-                        System.out.println("throw Exception");
+                        throw new Exception ();
                     }
                     int arabian =  calc(num1, num2, sign);
             if (getObject) {
 
                 if (arabian <= 0) {
-                    System.out.println("throw Exception // т.к. в римской системе нет отрицательныхчисел");
+                    throw new Exception();
                 }
-                //конвертируем результат операции из арабского в римское
-
                 result = Ro.getRoman(arabian).toString();
 
             } else {
-                //Конвертируем арабское число в тип String
                 result = String.valueOf(arabian);
             }
 //                    //возвращаем результат
