@@ -10,13 +10,13 @@ public class Calcul {
     }
         public static String calc (String input) throws Exception {
 
-        int num1 = 0;
-        int num2 = 0;
+        int num1;
+        int num2;
         Ro roman1;
         Ro roman2;
         String sign;
         String result;
-        boolean getObject = true;
+        boolean getObject;
         String[] terms = input.split("[+\\-*/]");
         if (terms.length != 2) throw new Exception();
 
@@ -34,7 +34,7 @@ public class Calcul {
         else {
             throw new Exception();
         }
-        if (num1 > 10 || num2 > 10) {
+        if (num1 > 10 || num2 > 0 && num1 <=0 || num2 <=0 ) {
                         throw new Exception ();
                     }
                     int arabian =  calc(num1, num2, sign);
